@@ -20,7 +20,10 @@ namespace IdentityServer
         public static IEnumerable<ApiScope> ApiScopes =>
             new List<ApiScope>
             {
-            new ApiScope("api1", "My API")
+            new ApiScope("api1", "My API"),
+            new ApiScope("todo.read", "My API"),
+            new ApiScope("todo.write", "My API")
+
             };
         public static IEnumerable<Client> Clients =>
             new List<Client>
@@ -33,7 +36,7 @@ namespace IdentityServer
 
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     // scopes that client has access to
-                    AllowedScopes = { "api1" }
+                    AllowedScopes = { "api1", "todo.write","todo.read" }
                 },
                 // interactive ASP.NET Core MVC client
                 new Client
